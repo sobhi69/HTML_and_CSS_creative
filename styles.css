@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+:root {
+    --hue:200;
+    --saturation: 50%;
+    --paddle-clolor: hsl(var(--hue),var(--saturation), 75%);
+    --background-color: hsl(var(--hue),var(--saturation), 15%)
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+
+.paddle {
+    --position: 50;
+
+    background-color: var(--paddle-clolor);
+    position: absolute;
+    width: 1vh;
+    height: 10vh;
+    top: calc(var(--position) * 1vh);
+    transform: translateY(-50%);
+}
+
+.paddle.left {
+    left: 1vh;
+}
+
+.paddle.right {
+    right: 1vh;
+}
+
+.dummy {
+    --left:50;
+    --top:50;
+
+    width: 2vh;
+    height: 2vh;
+    background-color: #eee;
+    position: absolute;
+    left: calc(var(--left) * 1vh);
+    top: calc(var(--top) * 1vh);
+}
+
+.ball {
+    --x : 50;
+    --y : 50;
+    
+    position: absolute;
+    left: calc(var(--x) * 1vw);
+    top: calc(var(--y) * 1vh);
+    transform: translate(-50%, -50%);
+    width: 2.5vh;
+    height: 2.5vh;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    font-size: 6vh;
+    font-weight: bold;
+    color: white;
+}
+
+.score > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+    opacity: .5;
+}
+
+.score > :first-child {
+    text-align: right;
+    border-right: .5vh solid;
+}
